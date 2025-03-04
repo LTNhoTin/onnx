@@ -45,8 +45,8 @@
   - So sánh kết quả với mô hình PyTorch.
 
   **Hình minh họa:**  
-  ![Ảnh gốc](optional%20Exporting%20a%20Model%20from%20PyTorch%20to%20ONNX%20and%20Running%20it%20using%20ONNX%20Runtime/cat_resized.jpg)  
-  ![Ảnh sau khi xử lý với ONNX Runtime](optional%20Exporting%20a%20Model%20from%20PyTorch%20to%20ONNX%20and%20Running%20it%20using%20ONNX%20Runtime/cat_superres_with_ort.jpg)
+  ![Ảnh gốc]((optional)%20Exporting%20a%20Model%20from%20PyTorch%20to%20ONNX%20and%20Running%20it%20using%20ONNX%20Runtime/cat_resized.jpg)  
+  ![Ảnh sau khi xử lý với ONNX Runtime]((optional)%20Exporting%20a%20Model%20from%20PyTorch%20to%20ONNX%20and%20Running%20it%20using%20ONNX%20Runtime/cat_superres_with_ort.jpg)
 
 </details>
 
