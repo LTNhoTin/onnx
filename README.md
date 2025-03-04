@@ -1,4 +1,4 @@
-# ✅ Task 1: Exporting a Model from PyTorch to ONNX
+# Task 1: Exporting a Model from PyTorch to ONNX
 
 <details>
   <summary>1. Purpose</summary>
@@ -12,24 +12,13 @@
   - Dùng `torch.onnx.export` để chuyển đổi mô hình sang định dạng ONNX.
   - Lưu mô hình ONNX.
 
-  **Mã nguồn:**
-  ```python
-  import torch
-  import torch.onnx
-
-  # Giả sử ta có một mô hình PyTorch
-  model = MyPyTorchModel()
-  model.eval()
-
-  # Xuất mô hình sang ONNX
-  dummy_input = torch.randn(1, 3, 224, 224)
-  torch.onnx.export(model, dummy_input, "model.onnx", opset_version=11)
-  ```
+  **Hình minh họa:**  
+  ![Mô hình PyTorch](Export%20a%20PyTorch%20model%20to%20ONNX/pic.jpg)
 </details>
 
 <details>
   <summary>3. Result</summary>
-  - Mô hình PyTorch được chuyển đổi thành `model.onnx`.
+  - Mô hình PyTorch đã được chuyển đổi thành `model.onnx`.
   - Kiểm tra lại mô hình bằng cách sử dụng `onnx.checker`.
 </details>
 
@@ -41,7 +30,7 @@
 
 ---
 
-# ✅ Task 2: Running ONNX Model with ONNX Runtime
+# Task 2: Running ONNX Model with ONNX Runtime
 
 <details>
   <summary>1. Purpose</summary>
@@ -55,20 +44,10 @@
   - Load mô hình ONNX và chạy suy luận.
   - So sánh kết quả với mô hình PyTorch.
 
-  **Mã nguồn:**
-  ```python
-  import onnxruntime as ort
-  import numpy as np
+  **Hình minh họa:**  
+  ![Ảnh gốc](optional%20Exporting%20a%20Model%20from%20PyTorch%20to%20ONNX%20and%20Running%20it%20using%20ONNX%20Runtime/cat_resized.jpg)  
+  ![Ảnh sau khi xử lý với ONNX Runtime](optional%20Exporting%20a%20Model%20from%20PyTorch%20to%20ONNX%20and%20Running%20it%20using%20ONNX%20Runtime/cat_superres_with_ort.jpg)
 
-  # Load mô hình ONNX
-  session = ort.InferenceSession("model.onnx")
-
-  # Chuẩn bị đầu vào
-  input_data = np.random.randn(1, 3, 224, 224).astype(np.float32)
-
-  # Thực hiện suy luận
-  outputs = session.run(None, {"input": input_data})
-  ```
 </details>
 
 <details>
