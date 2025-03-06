@@ -3,7 +3,7 @@
 ## **1 Giới thiệu**
 - **Mô hình**: Super Resolution (PyTorch → ONNX)
 - **Triển khai**: Triton Inference Server
-- **Inference trên**: CPU (MacBook Pro M1, Docker)
+- **Inference trên**: CPU (AppleM1Pro, Docker)
 - **Mục tiêu**: Đánh giá hiệu suất của mô hình qua các tham số:
   - Throughput (ảnh xử lý mỗi giây)
   - Latency (thời gian xử lý mỗi request)
