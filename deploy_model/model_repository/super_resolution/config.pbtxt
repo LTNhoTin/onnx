@@ -1,0 +1,31 @@
+name: "super_resolution"
+platform: "onnxruntime_onnx"
+max_batch_size: 16  # Hỗ trợ batch processing (nếu model hỗ trợ batch)
+
+input [
+  {
+    name: "input"
+    data_type: TYPE_FP32
+    dims: [ 1, 224, 224 ]  # Đúng với model ONNX
+  }
+]
+
+output [
+  {
+    name: "output"
+    data_type: TYPE_FP32
+    dims: [ 1, 672, 672 ]  # Sửa lại đúng theo output của model
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_CPU  # Chạy trên CPU do đang dùng macOS
+  }
+]
+
+dynamic_batching {
+  preferred_batch_size: [4, 8]
+  max_queue_delay_microseconds: 100
+}
