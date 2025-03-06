@@ -15,10 +15,11 @@
 - **Môi trường cài đặt**:  
   - Python 3.10, PyTorch, ONNX, Triton Client, Docker
 - **Mô hình sử dụng**:
-  - **Input**: `1 × 224 × 224` (Grayscale, YCbCr-Y Channel)
-  - **Output**: `1 × 672 × 672` (Upscaled)
-  - **Batch size hỗ trợ**: Lên đến 16
-
+  - **Mô hình Super Resolution đã được huấn luyện trong Training 1**.
+  - **Định dạng xuất:** PyTorch → ONNX.
+  - **Input:** `1 × 224 × 224` (Grayscale, YCbCr-Y Channel).
+  - **Output:** `1 × 672 × 672` (Upscaled).
+  - **Batch size hỗ trợ:** Lên đến 16.
 ---
 
 ## **3️ Kết quả đo hiệu suất**
