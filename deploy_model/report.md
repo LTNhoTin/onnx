@@ -19,7 +19,13 @@
   - **Định dạng xuất:** PyTorch → ONNX.
   - **Input:** `1 × 224 × 224` (Grayscale, YCbCr-Y Channel).
   - **Output:** `1 × 672 × 672` (Upscaled).
-  - **Batch size hỗ trợ:** Lên đến 16.
+
+### **Ảnh test**
+- **Ảnh sử dụng:** `test.jpg`
+- **Xử lý trước inference:**
+  - Chuyển đổi từ RGB sang **YCbCr** (chỉ dùng kênh Y - grayscale).
+  - Resize về kích thước **224 × 224**.
+  - Chuẩn hóa và gửi vào Triton để inference.
 
 ---
 
