@@ -1,6 +1,6 @@
 # Báo cáo triển khai và đánh giá hiệu suất Model Super Resolution trên Triton
 
-## **1️ Giới thiệu**
+## **1 Giới thiệu**
 - **Mô hình**: Super Resolution (PyTorch → ONNX)
 - **Triển khai**: Triton Inference Server
 - **Inference trên**: CPU (MacBook Pro M1, Docker)
@@ -11,7 +11,7 @@
 
 ---
 
-## **2️ Cấu hình môi trường**
+## **2 Cấu hình môi trường**
 - **Môi trường cài đặt**:  
   - Python 3.10, PyTorch, ONNX, Triton Client, Docker
 - **Mô hình sử dụng**:
@@ -20,10 +20,34 @@
   - **Input:** `1 × 224 × 224` (Grayscale, YCbCr-Y Channel).
   - **Output:** `1 × 672 × 672` (Upscaled).
   - **Batch size hỗ trợ:** Lên đến 16.
+
 ---
 
-## **3️ Kết quả đo hiệu suất**
-### ** 3.1. Hiệu suất với Batch Size = 1 và 8**
+## **3 Kết quả đo hiệu suất với Perf Analyzer**
+### **🔹 Cấu hình thử nghiệm**
+- **Batch size**: 1.
+- **Concurrency**: 1.
+- **Thời gian đo**: 5000ms.
+
+### **🔹 Kết quả đo hiệu suất**
+| Chỉ số | Giá trị |
+|--------|--------|
+| **Throughput** | 5.76 inferences/sec |
+| **Avg Latency** | 171,865 µs (171.9 ms) |
+| **p50 Latency** | 170,321 µs (170.3 ms) |
+| **p95 Latency** | 172,894 µs (172.9 ms) |
+| **p99 Latency** | 193,704 µs (193.7 ms) |
+
+### **📌 Nhận xét**
+- **Model chạy tốt trên CPU nhưng tốc độ chỉ đạt ~5.76 ảnh/giây**.
+- **Latency trung bình ~171.9ms/request**, phù hợp với inference real-time.
+- **Không gặp lỗi hay vấn đề quá tải với batch size 1**.
+- **Nếu chạy trên GPU, throughput có thể được cải thiện đáng kể**.
+
+---
+
+## **4 Kết quả đo hiệu suất**
+### ** 4.1. Hiệu suất với Batch Size = 1 và 8**
 | Chỉ số          | Batch Size = 1 | Batch Size = 8 |
 |-----------------|----------------|----------------|
 | **Throughput**  | 5.76 infer/sec | 5.32 infer/sec |
@@ -38,7 +62,7 @@
 
 ---
 
-### ** 3.2. Hiệu suất với nhiều mức Concurrency**
+### ** 4.2. Hiệu suất với nhiều mức Concurrency**
 | **Concurrency** | **Throughput (infer/sec)** | **Avg Latency (ms)** |
 |---------------|------------------|------------------|
 | **1**         | 5.65 infer/sec   | 175 ms           |
@@ -55,7 +79,7 @@
 
 ---
 
-## **4️ Tổng kết**
+## **5 Tổng kết**
 ### ** Kết quả chính**
 **Mô hình Super Resolution đã deploy thành công trên Triton.**  
 **Inference trên CPU đạt tốc độ ~5.76 ảnh/giây với batch size = 1.**  
