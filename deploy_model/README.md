@@ -3,17 +3,7 @@
 ## 1 Chuẩn bị Mô hình Super Resolution
 ### Mô hình
 - Model Super Resolution đã được huấn luyện trong **Training 1**.
-- Chuyển đổi từ **PyTorch → ONNX** để chạy trên Triton.
-
-### Xuất Model từ PyTorch sang ONNX
-1. Tạo model Super Resolution và tải trọng số đã huấn luyện trước.
-2. Xuất model sang ONNX với dynamic batch:
-   ```python
-   torch.onnx.export(model, x, "super_resolution.onnx", export_params=True, opset_version=10,
-                     do_constant_folding=True, input_names=['input'], output_names=['output'],
-                     dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}})
-   ```
-3. Kiểm tra lại model ONNX bằng ONNX Runtime:
+### Kiểm tra lại model ONNX bằng ONNX Runtime:
    ```python
    import onnx
    onnx_model = onnx.load("super_resolution.onnx")
@@ -43,7 +33,7 @@
 ```sh
 docker run --rm -p 8000:8000 -p 8001:8001 -p 8002:8002     -v $(pwd)/model_repository:/models     --platform linux/amd64 nvcr.io/nvidia/tritonserver:25.01-py3     tritonserver --model-repository=/models
 ```
-**Nếu server chạy thành công**, bạn sẽ thấy log:
+**Server chạy thành công**, log:
 ```
 +------------------+------+
 | Model            | Version | Status |
@@ -57,7 +47,7 @@ docker run --rm -p 8000:8000 -p 8001:8001 -p 8002:8002     -v $(pwd)/model_repos
 ## 3 Kiểm tra Inference với Triton
 ### Cài đặt Triton Client
 ```sh
-pip install tritonclient[http]
+pip install 'tritonclient[http]'
 ```
 
 ### Gửi request inference đến Triton
@@ -69,7 +59,6 @@ python3 inference.py
 ### Kiểm tra kết quả
 - Ảnh đầu vào: **`test.jpg`**
 - Ảnh đầu ra được lưu: **`output_super_resolution.jpg`**
-- Nếu inference thành công, ảnh được phóng to sẽ hiển thị.
 
 ---
 
