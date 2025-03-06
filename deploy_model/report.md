@@ -24,12 +24,12 @@
 ---
 
 ## **3 Kết quả đo hiệu suất với Perf Analyzer**
-### ** Cấu hình thử nghiệm**
+### **Cấu hình thử nghiệm**
 - **Batch size**: 1.
 - **Concurrency**: 1.
 - **Thời gian đo**: 5000ms.
 
-### ** Kết quả đo hiệu suất**
+### **Kết quả đo hiệu suất**
 | Chỉ số | Giá trị |
 |--------|--------|
 | **Throughput** | 5.76 inferences/sec |
@@ -38,7 +38,7 @@
 | **p95 Latency** | 172,894 µs (172.9 ms) |
 | **p99 Latency** | 193,704 µs (193.7 ms) |
 
-### ** Nhận xét**
+### **Nhận xét**
 - **Model chạy tốt trên CPU nhưng tốc độ chỉ đạt ~5.76 ảnh/giây**.
 - **Latency trung bình ~171.9ms/request**, phù hợp với inference real-time.
 - **Không gặp lỗi hay vấn đề quá tải với batch size 1**.
@@ -47,7 +47,7 @@
 ---
 
 ## **4 Kết quả đo hiệu suất**
-### ** 4.1. Hiệu suất với Batch Size = 1 và 8**
+### **4.1. Hiệu suất với Batch Size = 1 và 8**
 | Chỉ số          | Batch Size = 1 | Batch Size = 8 |
 |-----------------|----------------|----------------|
 | **Throughput**  | 5.76 infer/sec | 5.32 infer/sec |
@@ -62,7 +62,7 @@
 
 ---
 
-### ** 4.2. Hiệu suất với nhiều mức Concurrency**
+### **4.2. Hiệu suất với nhiều mức Concurrency**
 | **Concurrency** | **Throughput (infer/sec)** | **Avg Latency (ms)** |
 |---------------|------------------|------------------|
 | **1**         | 5.65 infer/sec   | 175 ms           |
