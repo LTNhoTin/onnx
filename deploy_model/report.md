@@ -80,7 +80,7 @@
 ---
 
 ## **5 Tổng kết**
-### ** Kết quả chính**
+### **Kết quả chính**
 **Mô hình Super Resolution đã deploy thành công trên Triton.**  
 **Inference trên CPU đạt tốc độ ~5.76 ảnh/giây với batch size = 1.**  
 **Concurrency tối ưu nhất trên CPU: 3-5 request song song.**  
